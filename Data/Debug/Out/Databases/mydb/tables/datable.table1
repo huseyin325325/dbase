@@ -1,0 +1,11 @@
+TBLNAME "table1"
+COLUMN
+NAME "Name"
+DATAS "Huseyin","Mahmut","Ali"
+COLUMNEND
+
+COLUMN
+NAME "Surname"
+DATAS "Akbas","Akbas","Cehreli"
+COLUMNEND
+

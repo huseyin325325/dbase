@@ -1,0 +1,809 @@
+[
+ {
+  "name" : "column",
+  "kind" : "module",
+  "file" : "column.d",
+  "members" : [
+   {
+    "name" : "ColumnName",
+    "kind" : "alias",
+    "line" : 2,
+    "deco" : "Ayw"
+   },
+   {
+    "name" : "Data",
+    "kind" : "alias",
+    "line" : 3,
+    "deco" : "Ayw"
+   },
+   {
+    "name" : "Column",
+    "kind" : "struct",
+    "line" : 5,
+    "members" : [
+     {
+      "name" : "name",
+      "kind" : "variable",
+      "line" : 6,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 0
+     },
+     {
+      "name" : "datas",
+      "kind" : "variable",
+      "line" : 7,
+      "deco" : "HkAyw",
+      "originalType" : "Data[uint]",
+      "offset" : 8
+     },
+     {
+      "name" : "count",
+      "kind" : "variable",
+      "line" : 8,
+      "deco" : "k",
+      "offset" : 12
+     },
+     {
+      "name" : "addData",
+      "kind" : "function",
+      "line" : 9,
+      "deco" : "FAywZv",
+      "originalType" : "void(dstring data)",
+      "parameters" : [
+       {
+        "name" : "data",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 13
+     },
+     {
+      "name" : "toString",
+      "kind" : "function",
+      "line" : 15,
+      "deco" : "FZAyw",
+      "originalType" : "dstring()",
+      "endline" : 32
+     },
+     {
+      "name" : "__xopEquals",
+      "kind" : "function",
+      "storageClass" : [
+       "static"
+      ],
+      "deco" : "FKxS6column6ColumnKxS6column6ColumnZb",
+      "parameters" : [
+       {
+        "name" : "p",
+        "deco" : "xS6column6Column",
+        "storageClass" : [
+         "ref"
+        ]
+       },
+       {
+        "name" : "q",
+        "deco" : "xS6column6Column",
+        "storageClass" : [
+         "ref"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name" : "database",
+  "kind" : "module",
+  "file" : "database.d",
+  "members" : [
+   {
+    "name" : "std.file",
+    "kind" : "import",
+    "line" : 2,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.stdio",
+    "kind" : "import",
+    "line" : 4,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.conv",
+    "kind" : "import",
+    "line" : 5,
+    "protection" : "private",
+    "selective" : [
+     "to"
+    ]
+   },
+   {
+    "name" : "std.uni",
+    "kind" : "import",
+    "line" : 6,
+    "protection" : "private",
+    "selective" : [
+     "isAlpha",
+     "isSymbol"
+    ]
+   },
+   {
+    "name" : "table",
+    "kind" : "import",
+    "line" : 8
+   },
+   {
+    "name" : "helper",
+    "kind" : "import",
+    "line" : 9,
+    "protection" : "private"
+   },
+   {
+    "name" : "Database",
+    "kind" : "class",
+    "line" : 12,
+    "members" : [
+     {
+      "name" : "name",
+      "kind" : "variable",
+      "line" : 13,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 8
+     },
+     {
+      "name" : "tables",
+      "kind" : "variable",
+      "line" : 14,
+      "deco" : "AAyw",
+      "originalType" : "dstring[]",
+      "offset" : 16
+     },
+     {
+      "name" : "nulltable",
+      "kind" : "variable",
+      "line" : 15,
+      "deco" : "S5table5Table",
+      "offset" : 24
+     },
+     {
+      "name" : "this",
+      "kind" : "constructor",
+      "line" : 17,
+      "deco" : "FAyaZC8database8Database",
+      "originalType" : "(string dbname)",
+      "parameters" : [
+       {
+        "name" : "dbname",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 20
+     },
+     {
+      "name" : "openDB",
+      "kind" : "function",
+      "protection" : "private",
+      "line" : 22,
+      "deco" : "FAyaZv",
+      "parameters" : [
+       {
+        "name" : "dbname",
+        "deco" : "Aya"
+       }
+      ],
+      "endline" : 37
+     },
+     {
+      "name" : "getTable",
+      "kind" : "function",
+      "line" : 39,
+      "deco" : "FAywZS5table5Table",
+      "originalType" : "Table(dstring tbname)",
+      "parameters" : [
+       {
+        "name" : "tbname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 60
+     },
+     {
+      "name" : "interp",
+      "kind" : "function",
+      "protection" : "private",
+      "line" : 62,
+      "deco" : "FAAywZv",
+      "originalType" : "void(dstring[] tokens)",
+      "parameters" : [
+       {
+        "name" : "tokens",
+        "deco" : "AAyw"
+       }
+      ],
+      "endline" : 83
+     },
+     {
+      "name" : "tblinterp",
+      "kind" : "function",
+      "protection" : "private",
+      "line" : 85,
+      "deco" : "FAAywZS5table5Table",
+      "originalType" : "Table(dstring[] tokens)",
+      "parameters" : [
+       {
+        "name" : "tokens",
+        "deco" : "AAyw"
+       }
+      ],
+      "endline" : 132
+     },
+     {
+      "name" : "opIndex",
+      "kind" : "function",
+      "line" : 134,
+      "deco" : "FAywZS5table5Table",
+      "originalType" : "Table(dstring tbname)",
+      "parameters" : [
+       {
+        "name" : "tbname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 137
+     },
+     {
+      "name" : "createTable",
+      "kind" : "function",
+      "line" : 139,
+      "deco" : "FAywZv",
+      "originalType" : "void(dstring tbname)",
+      "parameters" : [
+       {
+        "name" : "tbname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 154
+     },
+     {
+      "name" : "deleteTable",
+      "kind" : "function",
+      "line" : 156,
+      "deco" : "FAywZv",
+      "originalType" : "void(dstring tbname)",
+      "parameters" : [
+       {
+        "name" : "tbname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 174
+     },
+     {
+      "name" : "SaveMe",
+      "kind" : "function",
+      "line" : 176,
+      "deco" : "FZv",
+      "endline" : 189
+     }
+    ]
+   },
+   {
+    "name" : "createDb",
+    "kind" : "function",
+    "line" : 195,
+    "deco" : "FAyaZv",
+    "parameters" : [
+     {
+      "name" : "dabname",
+      "deco" : "Aya"
+     }
+    ],
+    "endline" : 209
+   },
+   {
+    "name" : "deleteDb",
+    "kind" : "function",
+    "line" : 211,
+    "deco" : "FAyaZv",
+    "parameters" : [
+     {
+      "name" : "dbname",
+      "deco" : "Aya"
+     }
+    ],
+    "endline" : 221
+   }
+  ]
+ },
+ {
+  "name" : "databaser",
+  "kind" : "module",
+  "file" : "databaser.d",
+  "members" : [
+   {
+    "name" : "database",
+    "kind" : "import",
+    "line" : 2
+   },
+   {
+    "name" : "std.uni",
+    "kind" : "import",
+    "line" : 3,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.stdio",
+    "kind" : "import",
+    "line" : 4,
+    "protection" : "private",
+    "selective" : [
+     "writeln"
+    ]
+   },
+   {
+    "name" : "std.array",
+    "kind" : "import",
+    "line" : 5,
+    "protection" : "private",
+    "selective" : [
+     "split"
+    ]
+   },
+   {
+    "name" : "Interpereter",
+    "kind" : "class",
+    "line" : 6,
+    "members" : [
+     {
+      "name" : "tokens",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 10,
+      "deco" : "AAyw",
+      "originalType" : "dstring[]",
+      "offset" : 8
+     },
+     {
+      "name" : "method",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 11,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 16
+     },
+     {
+      "name" : "percols",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 12,
+      "deco" : "AAyw",
+      "originalType" : "dstring[]",
+      "offset" : 24
+     },
+     {
+      "name" : "tblname",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 13,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 32
+     },
+     {
+      "name" : "dbname",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 14,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 40
+     },
+     {
+      "name" : "all",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 15,
+      "deco" : "b",
+      "init" : "false",
+      "offset" : 48
+     },
+     {
+      "name" : "tokengen",
+      "kind" : "function",
+      "line" : 17,
+      "deco" : "FAywZv",
+      "originalType" : "void(dstring chars)",
+      "parameters" : [
+       {
+        "name" : "chars",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 37
+     },
+     {
+      "name" : "perform",
+      "kind" : "function",
+      "line" : 39,
+      "deco" : "FZHAywAAyw",
+      "originalType" : "dstring[][dstring]()",
+      "endline" : 75
+     },
+     {
+      "name" : "ender",
+      "kind" : "function",
+      "line" : 77,
+      "deco" : "FZHAywAAyw",
+      "originalType" : "dstring[][dstring]()",
+      "endline" : 99
+     },
+     {
+      "name" : "this",
+      "kind" : "constructor",
+      "line" : 100,
+      "deco" : "FAywZC9databaser12Interpereter",
+      "originalType" : "(dstring query)",
+      "parameters" : [
+       {
+        "name" : "query",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 106
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "name" : "helper",
+  "kind" : "module",
+  "file" : "helper.d",
+  "members" : [
+   {
+    "name" : "std.uni",
+    "kind" : "import",
+    "line" : 2,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.conv",
+    "kind" : "import",
+    "line" : 3,
+    "protection" : "private",
+    "selective" : [
+     "to"
+    ]
+   },
+   {
+    "name" : "std.file",
+    "kind" : "import",
+    "line" : 4,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.stdio",
+    "kind" : "import",
+    "line" : 5,
+    "protection" : "private"
+   },
+   {
+    "name" : "tokenizer",
+    "kind" : "function",
+    "line" : 6,
+    "deco" : "FAwZAAyw",
+    "originalType" : "dstring[](dchar[] str)",
+    "parameters" : [
+     {
+      "name" : "str",
+      "deco" : "Aw"
+     }
+    ],
+    "endline" : 41
+   },
+   {
+    "name" : "getTableInfo",
+    "kind" : "function",
+    "line" : 43,
+    "deco" : "FAyaAyaZAya",
+    "parameters" : [
+     {
+      "name" : "dbname",
+      "deco" : "Aya"
+     },
+     {
+      "name" : "tbname",
+      "deco" : "Aya"
+     }
+    ],
+    "endline" : 49
+   },
+   {
+    "name" : "getTablePath",
+    "kind" : "function",
+    "line" : 51,
+    "deco" : "FAyaZAya",
+    "parameters" : [
+     {
+      "name" : "dbname",
+      "deco" : "Aya"
+     }
+    ],
+    "endline" : 57
+   },
+   {
+    "name" : "getDb",
+    "kind" : "function",
+    "line" : 59,
+    "deco" : "FAyaZAya",
+    "parameters" : [
+     {
+      "name" : "dbname",
+      "deco" : "Aya"
+     }
+    ],
+    "endline" : 65
+   },
+   {
+    "name" : "getDbPath",
+    "kind" : "function",
+    "line" : 67,
+    "deco" : "FZAya",
+    "endline" : 73
+   }
+  ]
+ },
+ {
+  "name" : "main",
+  "kind" : "module",
+  "file" : "main.d",
+  "members" : [
+   {
+    "name" : "std.stdio",
+    "kind" : "import",
+    "line" : 3,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.c.process",
+    "kind" : "import",
+    "line" : 4,
+    "protection" : "private",
+    "selective" : [
+     "system"
+    ]
+   },
+   {
+    "name" : "databaser",
+    "kind" : "import",
+    "line" : 5,
+    "protection" : "private"
+   },
+   {
+    "name" : "std.array",
+    "kind" : "import",
+    "line" : 6,
+    "protection" : "private",
+    "selective" : [
+     "chomp"
+    ]
+   },
+   {
+    "name" : "main",
+    "kind" : "function",
+    "line" : 8,
+    "deco" : "FAAyaZv",
+    "parameters" : [
+     {
+      "name" : "argv",
+      "deco" : "AAya"
+     }
+    ],
+    "endline" : 27
+   }
+  ]
+ },
+ {
+  "name" : "table",
+  "kind" : "module",
+  "file" : "table.d",
+  "members" : [
+   {
+    "name" : "std.stdio",
+    "kind" : "import",
+    "line" : 2,
+    "protection" : "private"
+   },
+   {
+    "name" : "helper",
+    "kind" : "import",
+    "line" : 3,
+    "protection" : "private"
+   },
+   {
+    "name" : "column",
+    "kind" : "import",
+    "line" : 4
+   },
+   {
+    "name" : "Table",
+    "kind" : "struct",
+    "line" : 6,
+    "members" : [
+     {
+      "name" : "dbname",
+      "kind" : "variable",
+      "line" : 7,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 0
+     },
+     {
+      "name" : "name",
+      "kind" : "variable",
+      "line" : 8,
+      "deco" : "Ayw",
+      "originalType" : "dstring",
+      "offset" : 8
+     },
+     {
+      "name" : "columns",
+      "kind" : "variable",
+      "line" : 9,
+      "deco" : "AS6column6Column",
+      "offset" : 16
+     },
+     {
+      "name" : "nullcol",
+      "kind" : "variable",
+      "protection" : "private",
+      "line" : 10,
+      "deco" : "S6column6Column",
+      "offset" : 24
+     },
+     {
+      "name" : "getColumn",
+      "kind" : "function",
+      "line" : 12,
+      "deco" : "FNcAywZS6column6Column",
+      "originalType" : "Column(dstring colname)",
+      "parameters" : [
+       {
+        "name" : "colname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 21
+     },
+     {
+      "name" : "addColumn",
+      "kind" : "function",
+      "line" : 23,
+      "deco" : "FAywZv",
+      "originalType" : "void(dstring colname)",
+      "parameters" : [
+       {
+        "name" : "colname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 28
+     },
+     {
+      "name" : "delColumn",
+      "kind" : "function",
+      "line" : 30,
+      "deco" : "FAywZv",
+      "originalType" : "void(dstring colname)",
+      "parameters" : [
+       {
+        "name" : "colname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 39
+     },
+     {
+      "name" : "getAssoc",
+      "kind" : "function",
+      "line" : 41,
+      "deco" : "FkZHAywAyw",
+      "originalType" : "dstring[dstring](uint row)",
+      "parameters" : [
+       {
+        "name" : "row",
+        "deco" : "k"
+       }
+      ],
+      "endline" : 50
+     },
+     {
+      "name" : "getLength",
+      "kind" : "function",
+      "line" : 52,
+      "deco" : "FZk",
+      "endline" : 55
+     },
+     {
+      "name" : "opIndex",
+      "kind" : "function",
+      "line" : 58,
+      "deco" : "FNcAywZS6column6Column",
+      "originalType" : "Column(dstring colname)",
+      "parameters" : [
+       {
+        "name" : "colname",
+        "deco" : "Ayw"
+       }
+      ],
+      "endline" : 61
+     },
+     {
+      "name" : "addAssoc",
+      "kind" : "function",
+      "line" : 63,
+      "deco" : "FHAywAywZv",
+      "originalType" : "void(dstring[dstring] assoc)",
+      "parameters" : [
+       {
+        "name" : "assoc",
+        "deco" : "HAywAyw"
+       }
+      ],
+      "endline" : 75
+     },
+     {
+      "name" : "SaveIt",
+      "kind" : "function",
+      "line" : 77,
+      "deco" : "FZv",
+      "endline" : 90
+     },
+     {
+      "name" : "delRow",
+      "kind" : "function",
+      "line" : 92,
+      "deco" : "FkZv",
+      "parameters" : [
+       {
+        "name" : "row",
+        "deco" : "k"
+       }
+      ],
+      "endline" : 98
+     },
+     {
+      "name" : "__xopEquals",
+      "kind" : "function",
+      "storageClass" : [
+       "static"
+      ],
+      "deco" : "FKxS5table5TableKxS5table5TableZb",
+      "parameters" : [
+       {
+        "name" : "p",
+        "deco" : "xS5table5Table",
+        "storageClass" : [
+         "ref"
+        ]
+       },
+       {
+        "name" : "q",
+        "deco" : "xS5table5Table",
+        "storageClass" : [
+         "ref"
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+]
